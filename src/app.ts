@@ -3,6 +3,7 @@ import cors from "cors";
 import { postRoutes } from "./modules/post/post.router";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
+import { commentRoutes } from "./modules/comment/comment.router";
 
 const app: Application = express();
 
@@ -19,6 +20,7 @@ app.use(
 
 // API
 app.use("/api/v1/posts", postRoutes);
+app.use("/api/v1/comments", commentRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
